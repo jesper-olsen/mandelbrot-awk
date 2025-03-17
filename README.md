@@ -98,8 +98,8 @@ Run
 % time awk -v png=1 -v width=1000 -v height=750 -f mandelbrot.awk >image.txt
 21.91s user 0.11s system 97% cpu 22.485 total
 
-> gnuplot topng.gp
-> ^open mandelbrot.png
+% gnuplot topng.gp
+% ^open mandelbrot.png
 ```
 ![PNG](https://raw.githubusercontent.com/jesper-olsen/mandelbrot-awk/main/mandelbrot.png)
 
