@@ -10,6 +10,7 @@ Mandelbrot with Awk. Other languages:
 * [Mojo](https://github.com/jesper-olsen/mandelbrot-mojo) 
 * [Fortran](https://github.com/jesper-olsen/mandelbrot-f) 
 * [Nushell](https://github.com/jesper-olsen/mandelbrot-nu)
+* [Tcl](https://github.com/jesper-olsen/mandelbrot-tcl)
 
 
 
