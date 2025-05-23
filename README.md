@@ -11,6 +11,7 @@ Mandelbrot with Awk. Other languages:
 * [Fortran](https://github.com/jesper-olsen/mandelbrot-f) 
 * [Nushell](https://github.com/jesper-olsen/mandelbrot-nu)
 * [Tcl](https://github.com/jesper-olsen/mandelbrot-tcl)
+* [R](https://github.com/jesper-olsen/mandelbrot-R)
 
 
 
