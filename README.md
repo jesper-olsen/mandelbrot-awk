@@ -147,6 +147,7 @@ Benchmarks were run on an **Apple M1** system with gawk version 20200816
 ```sh
 % time awk -v png=1 -v width=1000 -v height=750 -f mandelbrot.awk >image.txt
 21.91s user 0.11s system 97% cpu 22.485 total
+```
 
 
 **Generating a 5000x5000 data file:**
