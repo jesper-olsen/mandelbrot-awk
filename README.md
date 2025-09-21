@@ -1,23 +1,50 @@
+# Mandelbrot in Awk 
 
-mandelbrot-awk
-==============
+This repository contains an awk implementation for generating visualizations of the Mandelbrot set. It is part of a larger project comparing implementations across various programming languages.
 
-Mandelbrot with Awk. Other languages: 
+The program compiles to a single native executable. It can render the Mandelbrot set directly to the terminal as ASCII art or produce a data file for `gnuplot` to generate a high-resolution PNG image.
 
-* [Rust](https://github.com/jesper-olsen/mandelbrot-rs) 
-* [Erlang](https://github.com/jesper-olsen/mandelbrot_erl) 
-* [Python](https://github.com/jesper-olsen/mandelbrot-py) 
-* [Mojo](https://github.com/jesper-olsen/mandelbrot-mojo) 
-* [Fortran](https://github.com/jesper-olsen/mandelbrot-f) 
-* [Nushell](https://github.com/jesper-olsen/mandelbrot-nu)
-* [Tcl](https://github.com/jesper-olsen/mandelbrot-tcl)
-* [R](https://github.com/jesper-olsen/mandelbrot-R)
+### Other Language Implementations
+
+This project compares the performance and features of Mandelbrot set generation in different languages.
+
+| Language    | Repository                                                         | Single Thread   | Multi-Thread |
+| :--------   | :----------------------------------------------------------------- | ---------------:| -----------: |
+| **Awk**     | [mandelbrot-awk](https://github.com/jesper-olsen/mandelbrot-awk)   |           805.9 |              |
+| C           | [mandelbrot-c](https://github.com/jesper-olsen/mandelbrot-c)       |             9.1 |              |
+| Erlang      | [mandelbrot_erl](https://github.com/jesper-olsen/mandelbrot_erl)   |            56.0 |           16 |
+| Fortran     | [mandelbrot-f](https://github.com/jesper-olsen/mandelbrot-f)       |            11.6 |              |
+| Lua         | [mandelbrot-lua](https://github.com/jesper-olsen/mandelbrot-lua)   |           158.2 |              |
+| Mojo        | [mandelbrot-mojo](https://github.com/jesper-olsen/mandelbrot-mojo) |                 |              |
+| Nushell     | [mandelbrot-nu](https://github.com/jesper-olsen/mandelbrot-nu)     |   (est) 11488.5 |              |
+| Python      | [mandelbrot-py](https://github.com/jesper-olsen/mandelbrot-py)     |    (pure) 177.2 | (jax)    7.5 |
+| R           | [mandelbrot-R](https://github.com/jesper-olsen/mandelbrot-R)       |           562.0 |              |
+| Rust        | [mandelbrot-rs](https://github.com/jesper-olsen/mandelbrot-rs)     |             8.9 |          2.5 |
+| Tcl         | [mandelbrot-tcl](https://github.com/jesper-olsen/mandelbrot-tcl)   |           706.1 |              |
 
 
 
-Run
 ---
-```
+
+## Prerequisites
+
+You will need the following installed:
+
+1.  **Awk** - (e.g. gawk or [one true awk](https://github.com/onetrueawk/awk)). 
+2.  **Gnuplot** (required *only* for generating PNG images).
+
+---
+
+
+## Usage
+
+The script can be configured via command-line arguments using a `key=value` format.
+
+### 1. ASCII Art Output
+
+To render the Mandelbrot set directly in your terminal, run the executable.
+
+```sh
 % awk -v width=100 -v height=75 -f mandelbrot.awk
                                                                                                     
                                                                                 .                   
@@ -97,16 +124,36 @@ Run
 ```
 
 
-```
-% time awk -v png=1 -v width=1000 -v height=750 -f mandelbrot.awk >image.txt
-21.91s user 0.11s system 97% cpu 22.485 total
+### 2. PNG Image Generation
+
+To create a high-resolution PNG, you first generate a data file and then process it with `gnuplot`.
+
+
+```sh
+% awk -v png=1 -v width=1000 -v height=750 -f mandelbrot.awk >image.txt
 
 % gnuplot topng.gp
 % ^open mandelbrot.png
 ```
 ![PNG](https://raw.githubusercontent.com/jesper-olsen/mandelbrot-awk/main/mandelbrot.png)
 
+
+## Performance
+
+Benchmarks were run on an **Apple M1** system with gawk version 20200816
+
+**Generating a 1000x750 data file:**
+
+```sh
+% time awk -v png=1 -v width=1000 -v height=750 -f mandelbrot.awk >image.txt
+21.91s user 0.11s system 97% cpu 22.485 total
+
+
+**Generating a 5000x5000 data file:**
+
+```sh
+% time awk -v png=1 -v width=5000 -v height=5000 -f mandelbrot.awk >image5k.txt
+755.28s user 6.95s system 94% cpu 13:25.91 total
 ```
-% awk --version
-awk version 20200816
-```
+
+
