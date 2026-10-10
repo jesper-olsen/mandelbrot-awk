@@ -1,8 +1,9 @@
 # Mandelbrot in Awk 
 
-This repository contains an awk implementation for generating visualizations of the Mandelbrot set. It is part of a larger project comparing implementations across various programming languages.
+This repository contains an Awk program for generating visualizations of the Mandelbrot set. 
 
-The program compiles to a single native executable. It can render the Mandelbrot set directly to the terminal as ASCII art or produce a data file for `gnuplot` to generate a high-resolution PNG image.
+It can render the Mandelbrot set directly to the terminal as ASCII art or produce a data file for `gnuplot` to generate a high-resolution PNG image.
+
 
 ### Other Language Implementations
 
@@ -12,6 +13,7 @@ Single Thread/Multi-thread shows the number of seconds it takes to do a 5000x500
 | Language    | Repository                                                           | Single Thread   | Multi-Thread | Simd | Multi-Thread + Simd |
 | :--------   | :------------------------------------------------------------------- | ---------------:| -----------: | ----:| ------------------: |
 | **Awk**     | [mandelbrot-awk](https://github.com/jesper-olsen/mandelbrot-awk)     |           417.9 |              |      |                     |
+| Bash        | [mandelbrot-bash](https://github.com/jesper-olsen/mandelbrot-bash)   |         10187.3 |              |      |                     |
 | C           | [mandelbrot-c](https://github.com/jesper-olsen/mandelbrot-c)         |             3.6 |          0.6 |  0.7 |               0.2   |
 | C++         | [mandelbrot-cpp](https://github.com/jesper-olsen/mandelbrot-cpp)     |             3.7 |          0.6 |  0.7 |               0.2   |
 | Erlang      | [mandelbrot_erl](https://github.com/jesper-olsen/mandelbrot_erl)     |            35.6 |          8.3 |      |                     |
@@ -19,7 +21,7 @@ Single Thread/Multi-thread shows the number of seconds it takes to do a 5000x500
 | Go          | [mandelbrot-go](https://github.com/jesper-olsen/mandelbrot-go)       |             4.1 |          0.8 |  1.3 |               0.4   |
 | Lua         | [mandelbrot-lua](https://github.com/jesper-olsen/mandelbrot-lua)     |            33.2 |              |      |                     |
 | Mojo        | [mandelbrot-mojo](https://github.com/jesper-olsen/mandelbrot-mojo)   |             3.8 |          1.2 |  0.7 |               0.4   |
-| Nushell     | [mandelbrot-nu](https://github.com/jesper-olsen/mandelbrot-nu)       |         17186.6 |              |      |                     |
+| Nushell     | [mandelbrot-nu](https://github.com/jesper-olsen/mandelbrot-nu)       | (est.)  17186.6 |              |      |                     |
 | Odin        | [mandelbrot-odin](https://github.com/jesper-olsen/mandelbrot-odin)   |             4.4 |              |      |                     |
 | Python      | [mandelbrot-py](https://github.com/jesper-olsen/mandelbrot-py)       |     (pure) 93.3 | (jax)    5.9 |      |                     |
 | R           | [mandelbrot-R](https://github.com/jesper-olsen/mandelbrot-R)         |           335.0 |              |      |                     |
