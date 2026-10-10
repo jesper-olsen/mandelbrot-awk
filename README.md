@@ -12,7 +12,7 @@ Single Thread/Multi-thread shows the number of seconds it takes to do a 5000x500
 
 | Language    | Repository                                                           | Single Thread   | Multi-Thread | Simd | Multi-Thread + Simd |
 | :--------   | :------------------------------------------------------------------- | ---------------:| -----------: | ----:| ------------------: |
-| **Awk**     | [mandelbrot-awk](https://github.com/jesper-olsen/mandelbrot-awk)     |           417.9 |              |      |                     |
+| **Awk**     | [mandelbrot-awk](https://github.com/jesper-olsen/mandelbrot-awk)     |           146.3 |              |      |                     |
 | Bash        | [mandelbrot-bash](https://github.com/jesper-olsen/mandelbrot-bash)   |         10187.3 |              |      |                     |
 | C           | [mandelbrot-c](https://github.com/jesper-olsen/mandelbrot-c)         |             3.6 |          0.6 |  0.7 |               0.2   |
 | C++         | [mandelbrot-cpp](https://github.com/jesper-olsen/mandelbrot-cpp)     |             3.7 |          0.6 |  0.7 |               0.2   |
@@ -38,7 +38,7 @@ Single Thread/Multi-thread shows the number of seconds it takes to do a 5000x500
 
 You will need the following installed:
 
-1.  **Awk** - (e.g. gawk or [one true awk](https://github.com/onetrueawk/awk)). 
+1.  **Awk** - (e.g. [awk](https://github.com/onetrueawk/awk), gawk or mawk). 
 2.  **Gnuplot** (required *only* for generating PNG images).
 
 ---
@@ -154,15 +154,21 @@ Benchmarks were run on an **Apple M5** system with gawk version 20200816
 
 ```sh
 time awk -v png=1 -v width=1000 -v height=750 -f mandelbrot.awk >image.txt
-11.29s user 0.02s system 99% cpu 11.325 total
+11.41s user 0.02s system 99% cpu 11.437 total
+
+time gawk -v png=1 -v width=1000 -v height=750 -f mandelbrot.awk >image.txt
+10.01s user 0.02s system 99% cpu 10.048 total
+
+time mawk -v png=1 -v width=1000 -v height=750 -f mandelbrot.awk >image.txt
+4.01s user 0.01s system 99% cpu 4.031 total
 ```
 
 
 **Generating a 5000x5000 data file:**
 
 ```sh
-time awk -v png=1 -v width=5000 -v height=5000 -f mandelbrot.awk >image25k.txt
-410.05s user 2.65s system 98% cpu 6:57.87 total
+time mawk -v png=1 -v width=5000 -v height=5000 -f mandelbrot.awk >image.txt
+145.20s user 0.41s system 99% cpu 2:26.25 total
 ```
 
 
